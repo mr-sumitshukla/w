@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Website Status Checker</title>
+  <style>
+    .status {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .online {
+      color: green;
+    }
+    .offline {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+  <h1>Website Status Checker</h1>
+  <div id="status-container"></div>
+
+  <script>
+    const checkWebsiteStatus = async (url) => {
+      try {
+        const response = await fetch(url, { mode: "no-cors" });
+        if (response.status === 0) {
+          return "Online";
+        } else {
+          return "Offline";
+        }
+      } catch (error) {
+        return "Offline";
+      }
+    };
+
+    const displayWebsiteStatus = async () => {
+      const websites = [
+        "https://sparkeighteen.com",
+        "https://handsofgold.com",
+        "https://google.com"
+      ]; // Add the URLs you want to check here
+
+      const statusContainer = document.getElementById("status-container");
+      statusContainer.innerHTML = "";
+
+      for (const website of websites) {
+        const statusElement = document.createElement("div");
+        statusElement.classList.add("status");
+        statusElement.textContent = "Checking status of " + website + "...";
+        statusContainer.appendChild(statusElement);
+
+        const websiteStatus = await checkWebsiteStatus(website);
+        statusElement.textContent = "Status of " + website + ": " + websiteStatus;
+        statusElement.classList.add(websiteStatus.toLowerCase());
+      }
+    };
+
+    displayWebsiteStatus();
+  </script>
+</body>
+</html>
