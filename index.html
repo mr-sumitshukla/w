@@ -1,17 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Website Status Checker</title>
+  <title>Online Website Status Checker</title>
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+    }
+
+    h1 {
+      text-align: center;
+      margin-top: 30px;
+      color: #333;
+    }
+
+    #status-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+
     .status {
-      font-weight: bold;
+      padding: 10px;
       margin-bottom: 10px;
+      border-radius: 4px;
+      font-weight: bold;
+      color: #fff;
     }
+
     .online {
-      color: green;
+      background-color: #2ecc71;
     }
+
     .offline {
-      color: red;
+      background-color: #e74c3c;
     }
   </style>
 </head>
@@ -36,8 +59,19 @@
     const displayWebsiteStatus = async () => {
       const websites = [
         "https://sparkeighteen.com",
-        "https://handsofgold.com",
-        "https://google.com"
+        "https://handsofgold.in",
+        "https://jkapniparty.com",
+        "https://sky101.in",
+        "https://skyviewbyempyrean.com/",
+        "https://www.hivedata.com",
+        "https://anglerla.com",
+        "https://www.anglerrestaurants.com/san-francisco",
+        "https://www.filindustries.com",
+        "https://truu.ai",
+        "https://copasonmarket.com",
+        "https://www.deschoolonline.com",
+        "https://deschool.ca",
+        "https://www.sparkeighteen.com"
       ]; // Add the URLs you want to check here
 
       const statusContainer = document.getElementById("status-container");
